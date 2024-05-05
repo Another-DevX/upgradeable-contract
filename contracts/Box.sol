@@ -20,9 +20,9 @@ contract Box is Initializable, UUPSUpgradeable, OwnableUpgradeable {
     //////////////////////////////////////////////////////////////*/
 
     /// @notice No constructor in upgradable contracts, so initialized with this function.
-    function initialize(uint256 objects) public initializer {
+    function initialize(uint256 objects, address multisig) public initializer {
         __UUPSUpgradeable_init();
-        __Ownable_init();
+        __Ownable_init(multisig);
 
         numberOfObjects = objects;
     }

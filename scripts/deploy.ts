@@ -23,7 +23,9 @@ async function main() {
   const deployment = await defender.deployProxy(
     ReFiMedLendUpgradeable,
     [
-      '0x809C3aca42a603797794dA019C779aE3D2F0e7F8'
+      '0x809C3aca42a603797794dA019C779aE3D2F0e7F8',
+      upgradeApprovalProcess.address,
+      '0x5E15DBf75d3819Dd9DA31Fc159Ce5bc5f3751AB0'
     ],
     { initializer: 'initialize'}
   );
