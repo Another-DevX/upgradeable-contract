@@ -179,7 +179,7 @@ contract ReFiMedLendUpgradeable is
         uint256 scaledAmount = amount * _SCALAR;
         User storage currentUser = user[msg.sender];
         uint256 lastFund = currentUser.lastFund;
-        uint256 daysSinceLastFund = Utils.timestampsToDays(
+        uint256 daysSinceLastFund = LendManagerUtils.timestampsToDays(
             lastFund,
             block.timestamp
         );
@@ -211,7 +211,7 @@ contract ReFiMedLendUpgradeable is
         uint256 scaledAmount = amount * _SCALAR;
         User storage currentUser = user[msg.sender];
         uint256 lastFund = currentUser.lastFund;
-        uint256 daysSinceLastFund = Utils.timestampsToDays(
+        uint256 daysSinceLastFund = LendManagerUtils.timestampsToDays(
             lastFund,
             block.timestamp
         );
@@ -277,11 +277,11 @@ contract ReFiMedLendUpgradeable is
         User storage currentUser = user[msg.sender];
         Lend storage currentLend = currentUser.currentLends[lendIndex];
         uint256 scaledAmount = amount;
-        uint256 time = Utils.timestampsToDays(
+        uint256 time = LendManagerUtils.timestampsToDays(
             currentLend.latestDebtTimestamp,
             block.timestamp
         );
-        (uint256 interests, uint256 totalDebt) = Utils.calculateInterest(
+        (uint256 interests, uint256 totalDebt) = LendManagerUtils.calculateInterest(
             time,
             INTEREST_RATE_PER_DAY,
             currentLend.currentAmount
@@ -331,7 +331,7 @@ contract ReFiMedLendUpgradeable is
         address recipent,
         uint256 amount,
         address[] calldata signers
-    ) external whenNotPaused onlyOwner {
+    ) external whenNotPaused onlyAdmin {
         uint256 scaledAmount = amount * _SCALAR;
         address[] memory seenSigners = new address[](signers.length);
 
@@ -368,7 +368,7 @@ contract ReFiMedLendUpgradeable is
         );
     }
 
-    function addToken(address tokenAddress) external onlyOwner whenNotPaused {
+    function addToken(address tokenAddress) external onlyAdmin whenNotPaused {
         _tokens[tokenAddress] = true;
         string memory symbol = ERC20(tokenAddress).symbol();
         string memory name = ERC20(tokenAddress).name();
@@ -508,24 +508,21 @@ contract ReFiMedLendUpgradeable is
     }
 
     function calculateInterests(
-        uint256 amount,
-        address token,
         uint256 lendIndex
     ) external view returns (uint256 interests, uint256 totalDebt) {
         User storage currentUser = user[msg.sender];
         Lend storage currentLend = currentUser.currentLends[lendIndex];
-        uint256 scaledAmount = amount;
-        uint256 time = Utils.timestampsToDays(
+        uint256 time = LendManagerUtils.timestampsToDays(
             currentLend.latestDebtTimestamp,
             block.timestamp
         );
-        (uint256 interests, uint256 totalDebt) = Utils.calculateInterest(
+        (uint256 _interests, uint256 _totalDebt) = LendManagerUtils.calculateInterest(
             time,
             INTEREST_RATE_PER_DAY,
             currentLend.currentAmount
         );
 
-        return (interests, totalDebt);
+        return (_interests, _totalDebt);
     }
 
     function _withdraw(
@@ -565,6 +562,11 @@ contract ReFiMedLendUpgradeable is
         );
         _lendNonce++;
         return random;
+    }
+
+    function transferAdmin(address newAdmin) external onlyAdmin {
+        _grantRole(ADMIN, newAdmin);
+        _revokeRole(ADMIN, msg.sender);
     }
 
     function _authorizeUpgrade(address) internal override onlyOwner {}

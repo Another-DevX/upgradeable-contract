@@ -1,0 +1,419 @@
+{
+  "manifestVersion": "3.2",
+  "proxies": [
+    {
+      "address": "0x505E65f7D854d4a564b5486d59c91E1DfE627579",
+      "txHash": "0xbffc52a8e3bc9d41d8087805e55dc9e466572c43cddc7e25afda514eb3d87c41",
+      "remoteDeploymentId": "1a3bec4d-716e-4454-af23-ce97a8bd9484",
+      "kind": "uups"
+    }
+  ],
+  "impls": {
+    "a1a5e90bf40cd6c058cb329b31d0d3f8ae96475fa17f673bd735c670c94cd970": {
+      "address": "0xff3daF2a8ADd5fA6115411799f6c4fB0Cc4A7910",
+      "txHash": "0xcbb244f4b3b6ed91a99477fa6db49229b66ef06bc1cca3f6a107f9ef2998ad67",
+      "remoteDeploymentId": "8a6fb9aa-14c7-49cb-9889-27dcc0762051",
+      "layout": {
+        "solcVersion": "0.8.20",
+        "storage": [
+          {
+            "label": "ATTESTATION_RESOLVER",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_bytes32",
+            "contract": "ReFiMedLendUpgradeable",
+            "src": "contracts/ReFiMedLendUpgradeable.sol:52"
+          },
+          {
+            "label": "ADMIN",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_bytes32",
+            "contract": "ReFiMedLendUpgradeable",
+            "src": "contracts/ReFiMedLendUpgradeable.sol:53"
+          },
+          {
+            "label": "INTEREST_RATE_PER_DAY",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_uint256",
+            "contract": "ReFiMedLendUpgradeable",
+            "src": "contracts/ReFiMedLendUpgradeable.sol:54"
+          },
+          {
+            "label": "_SCALAR",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_uint256",
+            "contract": "ReFiMedLendUpgradeable",
+            "src": "contracts/ReFiMedLendUpgradeable.sol:55"
+          },
+          {
+            "label": "_lendNonce",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_uint256",
+            "contract": "ReFiMedLendUpgradeable",
+            "src": "contracts/ReFiMedLendUpgradeable.sol:56"
+          },
+          {
+            "label": "user",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_mapping(t_address,t_struct(User)2889_storage)",
+            "contract": "ReFiMedLendUpgradeable",
+            "src": "contracts/ReFiMedLendUpgradeable.sol:58"
+          },
+          {
+            "label": "_userTokenBalances",
+            "offset": 0,
+            "slot": "6",
+            "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))",
+            "contract": "ReFiMedLendUpgradeable",
+            "src": "contracts/ReFiMedLendUpgradeable.sol:59"
+          },
+          {
+            "label": "_tokens",
+            "offset": 0,
+            "slot": "7",
+            "type": "t_mapping(t_address,t_bool)",
+            "contract": "ReFiMedLendUpgradeable",
+            "src": "contracts/ReFiMedLendUpgradeable.sol:61"
+          },
+          {
+            "label": "funds",
+            "offset": 0,
+            "slot": "8",
+            "type": "t_struct(Funds)2898_storage",
+            "contract": "ReFiMedLendUpgradeable",
+            "src": "contracts/ReFiMedLendUpgradeable.sol:63"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_bytes32": {
+            "label": "bytes32",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_bytes32,t_struct(RoleData)25_storage)": {
+            "label": "mapping(bytes32 => struct AccessControlUpgradeable.RoleData)",
+            "numberOfBytes": "32"
+          },
+          "t_struct(AccessControlStorage)35_storage": {
+            "label": "struct AccessControlUpgradeable.AccessControlStorage",
+            "members": [
+              {
+                "label": "_roles",
+                "type": "t_mapping(t_bytes32,t_struct(RoleData)25_storage)",
+                "offset": 0,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_struct(InitializableStorage)150_storage": {
+            "label": "struct Initializable.InitializableStorage",
+            "members": [
+              {
+                "label": "_initialized",
+                "type": "t_uint64",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "_initializing",
+                "type": "t_bool",
+                "offset": 8,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_struct(OwnableStorage)99_storage": {
+            "label": "struct OwnableUpgradeable.OwnableStorage",
+            "members": [
+              {
+                "label": "_owner",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_struct(PausableStorage)278_storage": {
+            "label": "struct PausableUpgradeable.PausableStorage",
+            "members": [
+              {
+                "label": "_paused",
+                "type": "t_bool",
+                "offset": 0,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_struct(RoleData)25_storage": {
+            "label": "struct AccessControlUpgradeable.RoleData",
+            "members": [
+              {
+                "label": "hasRole",
+                "type": "t_mapping(t_address,t_bool)",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "adminRole",
+                "type": "t_bytes32",
+                "offset": 0,
+                "slot": "1"
+              }
+            ],
+            "numberOfBytes": "64"
+          },
+          "t_uint64": {
+            "label": "uint64",
+            "numberOfBytes": "8"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_struct(Lend)2861_storage)dyn_storage": {
+            "label": "struct ReFiMedLendUpgradeable.Lend[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_struct(UserQuotaRequest)2872_storage)dyn_storage": {
+            "label": "struct ReFiMedLendUpgradeable.UserQuotaRequest[]",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+            "label": "mapping(address => mapping(address => uint256))",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_struct(User)2889_storage)": {
+            "label": "mapping(address => struct ReFiMedLendUpgradeable.User)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_struct(Funds)2898_storage": {
+            "label": "struct ReFiMedLendUpgradeable.Funds",
+            "members": [
+              {
+                "label": "totalFunds",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "interests",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "totalInterestShares",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "interestPerShare",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "3"
+              }
+            ],
+            "numberOfBytes": "128"
+          },
+          "t_struct(Lend)2861_storage": {
+            "label": "struct ReFiMedLendUpgradeable.Lend",
+            "members": [
+              {
+                "label": "initialAmount",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "currentAmount",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "token",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "expectPaymentDue",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "latestDebtTimestamp",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "4"
+              },
+              {
+                "label": "nonce",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "5"
+              }
+            ],
+            "numberOfBytes": "192"
+          },
+          "t_struct(User)2889_storage": {
+            "label": "struct ReFiMedLendUpgradeable.User",
+            "members": [
+              {
+                "label": "quota",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "currentLends",
+                "type": "t_array(t_struct(Lend)2861_storage)dyn_storage",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "userQuotaRequests",
+                "type": "t_array(t_struct(UserQuotaRequest)2872_storage)dyn_storage",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "currentFund",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "interestShares",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "4"
+              },
+              {
+                "label": "lastFund",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "5"
+              }
+            ],
+            "numberOfBytes": "192"
+          },
+          "t_struct(UserQuotaRequest)2872_storage": {
+            "label": "struct ReFiMedLendUpgradeable.UserQuotaRequest",
+            "members": [
+              {
+                "label": "amount",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "successfulSigns",
+                "type": "t_uint8",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "signers",
+                "type": "t_array(t_address)dyn_storage",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "signedBy",
+                "type": "t_array(t_address)dyn_storage",
+                "offset": 0,
+                "slot": "3"
+              }
+            ],
+            "numberOfBytes": "128"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        },
+        "namespaces": {
+          "erc7201:openzeppelin.storage.Pausable": [
+            {
+              "contract": "PausableUpgradeable",
+              "label": "_paused",
+              "type": "t_bool",
+              "src": "@openzeppelin/contracts-upgradeable/utils/PausableUpgradeable.sol:21",
+              "offset": 0,
+              "slot": "0"
+            }
+          ],
+          "erc7201:openzeppelin.storage.AccessControl": [
+            {
+              "contract": "AccessControlUpgradeable",
+              "label": "_roles",
+              "type": "t_mapping(t_bytes32,t_struct(RoleData)25_storage)",
+              "src": "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol:61",
+              "offset": 0,
+              "slot": "0"
+            }
+          ],
+          "erc7201:openzeppelin.storage.Ownable": [
+            {
+              "contract": "OwnableUpgradeable",
+              "label": "_owner",
+              "type": "t_address",
+              "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:24",
+              "offset": 0,
+              "slot": "0"
+            }
+          ],
+          "erc7201:openzeppelin.storage.Initializable": [
+            {
+              "contract": "Initializable",
+              "label": "_initialized",
+              "type": "t_uint64",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:69",
+              "offset": 0,
+              "slot": "0"
+            },
+            {
+              "contract": "Initializable",
+              "label": "_initializing",
+              "type": "t_bool",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:73",
+              "offset": 8,
+              "slot": "0"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

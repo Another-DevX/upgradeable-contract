@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
-library Utils {
+library LendManagerUtils {
     function calculateInterest(uint256 time, uint256 interestAccrualRate, uint256 currentAmount)
         public
         pure
