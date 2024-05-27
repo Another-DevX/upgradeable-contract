@@ -8,6 +8,8 @@ import {AccessControlUpgradeable} from "@openzeppelin/contracts-upgradeable/acce
 import {Initializable} from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import {UUPSUpgradeable} from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import {OwnableUpgradeable} from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
+import {IRandom} from "../interfaces/IRandom.sol";
+import {IRegistry} from "../interfaces/IRegistry.sol";
 
 /// @custom:oz-upgrades-unsafe-allow external-library-linking
 contract ReFiMedLendUpgradeable is
@@ -381,7 +383,11 @@ contract ReFiMedLendUpgradeable is
     }
 
     function _generateLendingId() private returns (uint256) {
-        uint256 random = uint256(keccak256(abi.encodePacked(block.prevrandao, block.timestamp, _lendNonce)));
+        bytes32 randomness = IRandom(
+            IRegistry(0x000000000000000000000000000000000000ce10)
+                .getAddressFor(keccak256(abi.encodePacked("Random")))
+        ).random();
+        uint256 random = uint256(keccak256(abi.encodePacked(randomness, block.timestamp, _lendNonce)));
         _lendNonce++;
         return random;
     }
