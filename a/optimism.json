@@ -8,8 +8,7 @@
   ],
   "impls": {
     "9f9cc070d0eeaad473f05c4afe2bed3ba6d84e15971d96a56aa2e332b317e8ab": {
-      "address": "0x4C2D4a29579f3900a5933Fd08983D1Dc19e50005",
-      "txHash": "0xcd9986455e5d0298ce1378f4435bda4702ee47bce91c2b28537af92292e9f5b2",
+      "address": "0x0dD3a8e2A590671717AF5bf8D8CD6c51366bCf20",
       "layout": {
         "solcVersion": "0.8.20",
         "storage": [
@@ -412,7 +411,6 @@
         }
       },
       "allAddresses": [
-        "0x4C2D4a29579f3900a5933Fd08983D1Dc19e50005",
         "0x0dD3a8e2A590671717AF5bf8D8CD6c51366bCf20"
       ]
     }

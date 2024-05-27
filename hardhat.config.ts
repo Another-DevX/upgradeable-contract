@@ -27,7 +27,7 @@ const config: HardhatUserConfig = {
     apiKey: {
       sepolia: ETHERSCAN_API_KEY,
       optimisticEthereum: 'UGB21JYI7XRY68M6IBNNYHPJYTSX2V5ATX',
-      celo: 'MEYHE76AYDGJDBFABE35MSC7Y9D3MJXEYI',
+      celo: 'P2U9RBABYF3B6YD73QKUBAJT5GQHJU11EP',
       polygon:'WI451TFRWSB2KNTU3SUMRGKBT2AH8K4VHN'
 
     },
