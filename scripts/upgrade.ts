@@ -1,20 +1,25 @@
-import { ethers, defender } from 'hardhat';
+import { ethers, upgrades,defender } from 'hardhat';
 
 async function main() {
   const ReFiMedLendUpgradeable = await ethers.getContractFactory(
     'ReFiMedLendUpgradeable',
     {
       libraries: {
-        Utils: '0xb12FcA821c721dD85875784a6e63F5432B1cb401',
+        LendManagerUtils: '0xc0a81809db36BbdF3AA8aDf91AfD965160A9cb57',
       },
     }
   );
-  const proposal = await defender.proposeUpgradeWithApproval('0x1d05e14deD8f1BF9d8AF0bA78D3864389435Af2f', ReFiMedLendUpgradeable);
+  const proxyAddress = '0x505E65f7D854d4a564b5486d59c91E1DfE627579';
+  // await upgrades.forceImport(proxyAddress, ReFiMedLendUpgradeable);
+  console.log('Proxy registrado en:', proxyAddress);
+  const proposal = await defender.proposeUpgradeWithApproval(
+    proxyAddress,
+    ReFiMedLendUpgradeable
+  );
 
   console.log(`Upgrade proposed with URL: ${proposal.url}`);
 
   const upgradeApprovalProcess = await defender.getUpgradeApprovalProcess();
-
 }
 
 // We recommend this pattern to be able to use async/await everywhere
