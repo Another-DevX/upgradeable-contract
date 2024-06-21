@@ -6,7 +6,7 @@ async function main() {
     'ReFiMedLendUpgradeable',
     {
       libraries: {
-        LendManagerUtils: '0xb395Eb9A7F4f99BD235c6B53f83f18B4d3B7e8D6',
+        LendManagerUtils: '0xa7763537F4C1F321C31AaAc2a2e3b5c674f568D2',
       },
     }
   );

@@ -1,14 +1,28 @@
-import { ethers, defender } from 'hardhat';
+import  {run, ethers, defender } from 'hardhat';
 
 async function main() {
-  const LendManagerUtils = await ethers.getContractFactory('LendManagerUtils'); // Reemplaza con el nombre real del contrato de la biblioteca
 
-  // Despliega la biblioteca Utils
+  const [deployer] = await ethers.getSigners();
+
+  console.log(
+  "Deploying contracts with the account:",
+  deployer.address
+  );
+
+  const LendManagerUtils = await ethers.getContractFactory('LendManagerUtils'); 
+
   const utils = await LendManagerUtils.deploy();
 
-  // Imprime la dirección del contrato desplegado
   console.debug(await utils.getAddress());
+
+  await run("verify:verify", {
+    address: await utils.getAddress(),
+    contract: "library/LendManagerUtils.sol:LendManagerUtils",
+    constructorArguments: [],
+ });
 }
+
+
 
 // We recommend this pattern to be able to use async/await everywhere
 // and properly handle errors.

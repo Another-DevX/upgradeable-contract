@@ -28,7 +28,8 @@ const config: HardhatUserConfig = {
       sepolia: ETHERSCAN_API_KEY,
       optimisticEthereum: 'UGB21JYI7XRY68M6IBNNYHPJYTSX2V5ATX',
       celo: 'P2U9RBABYF3B6YD73QKUBAJT5GQHJU11EP',
-      polygon:'WI451TFRWSB2KNTU3SUMRGKBT2AH8K4VHN'
+      polygon:'WI451TFRWSB2KNTU3SUMRGKBT2AH8K4VHN',
+      arbitrumOne: '9X88UKKA7QP7JRBG8U892RW5RM1ANF77SN'
 
     },
     customChains: [
@@ -66,6 +67,10 @@ const config: HardhatUserConfig = {
     polygon: {
       url: 'https://polygon-mainnet.infura.io/v3/e8505eb48d474b21af536d38758157f2',
       chainId: 137,
+    },
+    arbitrum: {
+      url: 'https://arbitrum-mainnet.infura.io/v3/e8505eb48d474b21af536d38758157f2',
+      chainId: 42161,
     },
   },
 };
